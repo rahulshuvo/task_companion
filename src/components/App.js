@@ -8,10 +8,10 @@ class App extends Component {
     const {lists} = this.props;
     return (
       <div className="App">
-        <h2>Hello Youtube</h2>
+        <h2>Task Companion</h2>
         <div style={styles.listsContainer}>
         {lists.map((list) => (
-          <TrelloList title={list.title} key={list.id} cards={list.cards} />
+          <TrelloList listID={list.id} title={list.title} key={list.id} cards={list.cards} />
         ))}
         <TrelloActionButton list/>
         </div>

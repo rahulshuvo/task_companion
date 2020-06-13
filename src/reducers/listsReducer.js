@@ -1,37 +1,36 @@
-import {CONSTANTS} from '../actions'
+import {CONSTANTS} from '../actions';
+import {v4 as uuid} from 'uuid';
 
-let listID=2;
-let cardID=10;
 
 const initialState=[
     {
-        id:0,
+        id:uuid(),
         title:'list title',
         cards:[
             {
-                id:0,
+                id:uuid(),
                 text:'first card'
             },
             {
-                id:1,
+                id:uuid(),
                 text:'second card'
             },
         ]
     },
     {
-        id:1,
+        id:uuid(),
         title:'list title 2',
         cards:[
             {
-                id:0,
+                id:uuid(),
                 text:'first card'
             },
             {
-                id:1,
+                id:uuid(),
                 text:'second card'
             },
             {
-                id:2,
+                id:uuid(),
                 text:'third card'
             },
         ]
@@ -43,14 +42,14 @@ const listsReducer= (state=initialState, action) =>{
         case CONSTANTS.ADD_LIST:
             const newList={
                 title: action.payload.title,
-                id:listID++,
+                id:uuid(),
                 cards:[]
             }
             return [...state, newList];
         case CONSTANTS.ADD_CARD:
             const newCard={
                 text:action.payload.text,
-                id:cardID++,
+                id:uuid(),
             }
 
             const newState=state.map((list)=>{

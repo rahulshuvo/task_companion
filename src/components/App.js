@@ -2,11 +2,19 @@ import React, { Component } from "react";
 import TrelloList from "./TrelloList";
 import { connect } from "react-redux";
 import TrelloActionButton from './TrelloActionButton';
+import {DragDropContext} from 'react-beautiful-dnd';
 
 class App extends Component {
+
+  onDragEnd=()=>{
+    //todo
+  }
+
+
   render() {
     const {lists} = this.props;
     return (
+      <DragDropContext onDragEnd={this.onDragEnd}>
       <div className="App">
         <h2>Task Companion</h2>
         <div style={styles.listsContainer}>
@@ -16,6 +24,7 @@ class App extends Component {
         <TrelloActionButton list/>
         </div>
       </div>
+      </DragDropContext>
     );
   }
 }
